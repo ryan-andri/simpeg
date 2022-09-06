@@ -1,10 +1,10 @@
 </main>
 <!--   Core JS Files   -->
-<script src="./template/assets/js/core/popper.min.js"></script>
-<script src="./template/assets/js/core/bootstrap.min.js"></script>
-<script src="./template/assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="./template/assets/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="./template/assets/js/plugins/chartjs.min.js"></script>
+<script src="<?= BASE_URL ?>/template/assets/js/core/popper.min.js"></script>
+<script src="<?= BASE_URL ?>/template/assets/js/core/bootstrap.min.js"></script>
+<script src="<?= BASE_URL ?>/template/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="<?= BASE_URL ?>/template/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="<?= BASE_URL ?>/template/assets/js/plugins/chartjs.min.js"></script>
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -264,7 +264,7 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="./template/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+<script src="<?= BASE_URL ?>/template/assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>

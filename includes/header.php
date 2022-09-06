@@ -4,22 +4,22 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="apple-touch-icon" sizes="76x76" href="./template/assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" href="./template/assets/img/hesti.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?= BASE_URL ?>/template/assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="<?= BASE_URL ?>/template/assets/img/hesti.png">
 	<title>
 		SIMPEG - RS AK GANI
 	</title>
 	<!--     Fonts and icons     -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 	<!-- Nucleo Icons -->
-	<link href="./template/assets/css/nucleo-icons.css" rel="stylesheet" />
-	<link href="./template/assets/css/nucleo-svg.css" rel="stylesheet" />
+	<link href="<?= BASE_URL ?>/template/assets/css/nucleo-icons.css" rel="stylesheet" />
+	<link href="<?= BASE_URL ?>/template/assets/css/nucleo-svg.css" rel="stylesheet" />
 	<!-- Font Awesome Icons -->
 	<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 	<!-- Material Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 	<!-- CSS Files -->
-	<link id="pagestyle" href="./template/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+	<link id="pagestyle" href="<?= BASE_URL ?>/template/assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -27,7 +27,7 @@
 		<div class="sidenav-header">
 			<i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
 			<a class="navbar-brand m-0" href="<?= BASE_URL ?>">
-				<img src="./template/assets/img/hesti.png" class="navbar-brand-img h-100 mb-2" alt="main_logo">
+				<img src="<?= BASE_URL ?>/template/assets/img/hesti.png" class="navbar-brand-img h-100 mb-2" alt="main_logo">
 				<span class="ms-2 font-weight-bold text-white">SIMPEG ONLINE</span>
 			</a>
 		</div>
@@ -92,7 +92,7 @@
 						<li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
 						<li class="breadcrumb-item text-sm text-dark" aria-current="page">Beranda</li>
 					</ol>
-					<h3 class="font-weight-bolder mb-0">Halaman Beranda</h3>
+					<h3 class="font-weight-bolder mb-0">Halaman <?= CURRENT_PAGE ?></h3>
 				</nav>
 				<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
 					<div class="ms-md-auto pe-md-3 d-flex align-items-center">
