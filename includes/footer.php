@@ -23,6 +23,8 @@
     <script src="<?= BASE_URL ?>/assets/plugins/chart.js/Chart.min.js"></script>
     <!-- Sparkline -->
     <script src="<?= BASE_URL ?>/assets/plugins/sparklines/sparkline.js"></script>
+
+    <script src="<?= BASE_URL ?>/assets/plugins/select2/js/select2.full.min.js"></script>
     <!-- JQVMap -->
     <script src="<?= BASE_URL ?>/assets/plugins/jqvmap/jquery.vmap.min.js"></script>
     <script src="<?= BASE_URL ?>/assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>

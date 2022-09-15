@@ -1,4 +1,5 @@
 <?php
+require_once('configs/default.php');
 include_once('includes/header.php');
 include_once('includes/sidebar.php');
 ?>
