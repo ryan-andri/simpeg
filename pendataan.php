@@ -4,6 +4,10 @@ include_once('includes/header.php');
 ?>
 
 <style>
+  body {
+    overflow-x: hidden !important;
+  }
+
   .sec-footer {
     right: 0;
     bottom: 0;
