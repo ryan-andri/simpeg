@@ -3,7 +3,6 @@ require_once('../configs/default.php');
 include_once('../includes/header.php');
 ?>
 
-
 <div class="hold-transition">
   <div class="row justify-content-center mt-3">
     <div class="col-md-8">
@@ -396,10 +395,6 @@ include_once('../includes/header.php');
     </div>
   </div>
 </div>
-
-
-
-
 
 <?php
 include_once('../includes/footer.php');
