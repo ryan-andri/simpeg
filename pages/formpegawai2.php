@@ -2,8 +2,8 @@
 session_start();
 require_once('../configs/default.php');
 include_once('../includes/header.php');
-
-$db = dbConnection();
+include_once('../configs/dbConnection.php');
+$db = new dbConnection();
 $wee = $db::getInstance();
 ?>
 

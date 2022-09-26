@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SIMPEG - RS AK GANI</title>
 
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -29,4 +33,5 @@
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/summernote/summernote-bs4.min.css">
+
 </head>

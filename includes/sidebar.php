@@ -58,7 +58,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="<?= BASE_URL ?>" class="nav-link active">
+              <a href="<?= BASE_URL ?>" class="nav-link <?= (CURRENT_PAGE == "simpeg") ? "active" : "" ?>">
                 <i class="nav-icon fas fa-desktop"></i>
                 <p>
                   Beranda
@@ -66,8 +66,8 @@
               </a>
             </li>
             <li class="nav-header">MANAGEMENT</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item <?= (CURRENT_PAGE == "kepegawaian") ? "menu-is-opening menu-open" : "" ?>">
+              <a href="#" class="nav-link <?= (CURRENT_PAGE == "kepegawaian") ? "active" : "" ?>">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Kepegawaian
@@ -76,7 +76,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <a href="<?= BASE_URL ?>/pages/kepegawaian" class="nav-link <?= (CURRENT_PAGE == "kepegawaian") ? "active" : "" ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>TNI</p>
                   </a>

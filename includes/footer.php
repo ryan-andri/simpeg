@@ -37,6 +37,19 @@
     <script src="<?= BASE_URL ?>/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Summernote -->
     <script src="<?= BASE_URL ?>/assets/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= BASE_URL ?>/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="<?= BASE_URL ?>/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
@@ -44,6 +57,7 @@
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="<?= BASE_URL ?>/assets/js/pages/dashboard.js"></script>
+
     </body>
 
     </html>
