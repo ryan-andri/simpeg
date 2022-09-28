@@ -1,6 +1,13 @@
 <?php
+session_start();
 require_once('configs/default.php');
 include_once('includes/header.php');
+
+if (isset($_POST['btn_tni'])) {
+  $input = filter_input_array(INPUT_POST);
+  var_dump($input['nrp']);
+}
+
 ?>
 
 <style>
@@ -39,21 +46,21 @@ include_once('includes/header.php');
         <div class="tab-content" id="custom-tabs-two-tabContent">
           <div class="tab-pane fade show active" id="custom-tabs-two-home" role="tabpanel" aria-labelledby="custom-tabs-two-home-tab">
             <!-- ini Form TNI  -->
-            <form action="">
+            <form method="post">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="nama">NAMA</label>
-                    <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukan Nama Anda">
+                    <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukan Nama Anda" required>
                   </div>
                   <div class="form-group">
                     <label for="tempat_lahir">TEMPAT LAHIR</label>
-                    <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" placeholder="Masukan Tempat Lahir">
+                    <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" placeholder="Masukan Tempat Lahir" required>
                   </div>
                   <div class="form-group">
                     <label>TANGGAL LAHIR</label>
                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                      <input type="text" name="tanggal_lahir" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                      <input type="text" name="tanggal_lahir" class="form-control datetimepicker-input" data-target="#reservationdate" required />
                       <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
@@ -61,8 +68,8 @@ include_once('includes/header.php');
                   </div>
                   <div class="form-group">
                     <label>AGAMA</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
-                      <option selected="selected" disabled>AGAMA</option>
+                    <select class="form-control select2bs4" style="width: 100%;" required>
+                      <option selected="selected" value="" disabled>AGAMA</option>
                       <option value="islam">ISLAM</option>
                       <option value="kristen">KRISTEN</option>
                       <option value="budha">BUDHA</option>
@@ -71,16 +78,16 @@ include_once('includes/header.php');
                   </div>
                   <div class="form-group">
                     <label for="pendidikan_umum">PENDIDIKAN UMUM</label>
-                    <input type="text" name="pendidikan_umum" class="form-control" id="pendidikan_umum" placeholder="Masukan Pendidikan Umum">
+                    <input type="text" name="pendidikan_umum" class="form-control" id="pendidikan_umum" placeholder="Masukan Pendidikan Umum" required>
                   </div>
                   <div class="form-group">
                     <label for="pendidikan_militer">PENDIDIKAN MILITER</label>
-                    <input type="text" name="pendidikan_militer" class="form-control" id="pendidikan_militer" placeholder="Masukan Pendidikan Militer">
+                    <input type="text" name="pendidikan_militer" class="form-control" id="pendidikan_militer" placeholder="Masukan Pendidikan Militer" required>
                   </div>
                   <div class="form-group">
                     <label>TMT TNI</label>
                     <div class="input-group date" id="reservationdate2" data-target-input="nearest">
-                      <input type="text" name="tmt_tni" class="form-control datetimepicker-input" data-target="#reservationdate2" />
+                      <input type="text" name="tmt_tni" class="form-control datetimepicker-input" data-target="#reservationdate2" required />
                       <div class="input-group-append" data-target="#reservationdate2" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
@@ -88,8 +95,8 @@ include_once('includes/header.php');
                   </div>
                   <div class="form-group">
                     <label>STATUS PERNIKAHAN</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
-                      <option selected="selected" disabled>STATUS</option>
+                    <select class="form-control select2bs4" style="width: 100%;" required>
+                      <option selected="selected" value="" disabled>STATUS</option>
                       <option value="kawin">KAWIN</option>
                       <option value="belum_kawin">BELUM KAWIN</option>
                     </select>
@@ -98,11 +105,11 @@ include_once('includes/header.php');
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="nrp">NRP</label>
-                    <input type="text" name="nrp" class="form-control" id="nrp" placeholder="Masukan NRP">
+                    <input type="text" name="nrp" class="form-control" id="nrp" placeholder="Masukan NRP" required>
                   </div>
                   <div class="form-group">
                     <label>JENIS KELAMIN</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
+                    <select class="form-control select2bs4" style="width: 100%;" required>
                       <option selected="selected" disabled>JENIS KELAMIN</option>
                       <option value="laki-laki">LAKI-LAKI</option>
                       <option value="perempuan">PEREMPUAN</option>
@@ -110,15 +117,15 @@ include_once('includes/header.php');
                   </div>
                   <div class="form-group">
                     <label for="pangkat">PANGKAT</label>
-                    <input type="text" name="pangkat" class="form-control" id="pangkat" placeholder="Masukan Pangkat">
+                    <input type="text" name="pangkat" class="form-control" id="pangkat" placeholder="Masukan Pangkat" required>
                   </div>
                   <div class="form-group">
                     <label for="corps">CORPS</label>
-                    <input type="text" name="corps" class="form-control" id="corps" placeholder="Masukan Corps Satuan">
+                    <input type="text" name="corps" class="form-control" id="corps" placeholder="Masukan Corps Satuan" required>
                   </div>
                   <div class="form-group">
                     <label>TMT CORPS</label>
-                    <div class="input-group date" id="reservationdate3" data-target-input="nearest">
+                    <div class="input-group date" id="reservationdate3" data-target-input="nearest" required>
                       <input type="text" name="tmt_corps" class="form-control datetimepicker-input" data-target="#reservationdate3" />
                       <div class="input-group-append" data-target="#reservationdate3" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -127,12 +134,12 @@ include_once('includes/header.php');
                   </div>
                   <div class="form-group">
                     <label for="jabatan">JABATAN</label>
-                    <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="Masukan Jabatan">
+                    <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="Masukan Jabatan" required>
                   </div>
                   <div class="form-group">
                     <label>TMT JABATAN</label>
                     <div class="input-group date" id="reservationdate4" data-target-input="nearest">
-                      <input type="text" name="tmt_jabatan" class="form-control datetimepicker-input" data-target="#reservationdate4" />
+                      <input type="text" name="tmt_jabatan" class="form-control datetimepicker-input" data-target="#reservationdate4" required />
                       <div class="input-group-append" data-target="#reservationdate4" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
@@ -140,7 +147,7 @@ include_once('includes/header.php');
                   </div>
                   <div class="form-group">
                     <label>GOLONGAN DARAH</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
+                    <select class="form-control select2bs4" name="gol_darah" style="width: 100%;" required>
                       <option selected="selected" disabled>GOLONGAN DARAH</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -151,13 +158,13 @@ include_once('includes/header.php');
                 </div>
               </div>
               <div class="">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="btn_tni">Kirim</button>
               </div>
             </form>
           </div>
           <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
             <!-- ini Form PNS -->
-            <form action="">
+            <form method="post">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -278,13 +285,13 @@ include_once('includes/header.php');
                 </div>
               </div>
               <div class="">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="btn_pns">Kirim</button>
               </div>
             </form>
           </div>
           <div class="tab-pane fade" id="custom-tabs-two-messages" role="tabpanel" aria-labelledby="custom-tabs-two-messages-tab">
             <!-- ini Form TKS -->
-            <form action="">
+            <form method="post">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -396,7 +403,7 @@ include_once('includes/header.php');
                 </div>
               </div>
               <div class="">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name="btn_tks">Kirim</button>
               </div>
             </form>
           </div>
@@ -408,7 +415,7 @@ include_once('includes/header.php');
 </div>
 
 <footer class="sec-footer">
-  <strong>Copyright &copy; <a href="#">IT Infokes RS dr. AK Gani</a>.</strong>
+  <strong>Copyright &copy; <a href="#">IT RS Tk. II dr. AK Gani</a>.</strong>
 </footer>
 
 <!-- jQuery -->
@@ -427,6 +434,8 @@ include_once('includes/header.php');
 <script src="<?= BASE_URL ?>/assets/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?= BASE_URL ?>/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Sweetalert -->
+<script src="<?= BASE_URL ?>/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
 <script>
   $(function() {
@@ -477,6 +486,23 @@ include_once('includes/header.php');
     format: 'L'
   });
 </script>
+
+<?php
+if (isset($_SESSION['sukses_simpan'])) { ?>
+  <script type="text/javascript">
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+    Toast.fire({
+      icon: 'success',
+      title: 'Data Anda sudah tersimpan, Terimakasih.'
+    })
+  </script>
+<?php unset($_SESSION['sukses_simpan']);
+} ?>
 
 </body>
 

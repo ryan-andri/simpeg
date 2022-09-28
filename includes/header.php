@@ -33,5 +33,6 @@
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/summernote/summernote-bs4.min.css">
-
+  <!-- Sweetalert -->
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 </head>
