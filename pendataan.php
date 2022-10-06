@@ -3,9 +3,18 @@ session_start();
 require_once('configs/default.php');
 include_once('includes/header.php');
 
+$db = dbInstance();
+
 if (isset($_POST['btn_tni'])) {
   $input = filter_input_array(INPUT_POST);
-  var_dump($input['nrp']);
+
+  array_splice($input, count($input) - 1, 1);
+
+  $res = $db->insert('militer', $input);
+  if ($res)
+    $_SESSION['sukses_simpan'] = 1;
+  else
+    $_SESSION['gagal_simpan'] = 1;
 }
 
 ?>
@@ -60,7 +69,7 @@ if (isset($_POST['btn_tni'])) {
                   <div class="form-group">
                     <label>TANGGAL LAHIR</label>
                     <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                      <input type="text" name="tanggal_lahir" class="form-control datetimepicker-input" data-target="#reservationdate" required />
+                      <input type="text" name="tanggal_lahir" class="form-control datetimepicker-input" data-date-format="YYYY-MM-DD" data-target="#reservationdate" required />
                       <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
@@ -68,12 +77,12 @@ if (isset($_POST['btn_tni'])) {
                   </div>
                   <div class="form-group">
                     <label>AGAMA</label>
-                    <select class="form-control select2bs4" style="width: 100%;" required>
+                    <select class="form-control select2bs4" style="width: 100%;" name="agama" required>
                       <option selected="selected" value="" disabled>AGAMA</option>
-                      <option value="islam">ISLAM</option>
-                      <option value="kristen">KRISTEN</option>
-                      <option value="budha">BUDHA</option>
-                      <option value="hindu">HINDU</option>
+                      <option value="ISLAM">ISLAM</option>
+                      <option value="KRISTEN">KRISTEN</option>
+                      <option value="BUDHA">BUDHA</option>
+                      <option value="HINDU">HINDU</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -95,10 +104,10 @@ if (isset($_POST['btn_tni'])) {
                   </div>
                   <div class="form-group">
                     <label>STATUS PERNIKAHAN</label>
-                    <select class="form-control select2bs4" style="width: 100%;" required>
+                    <select class="form-control select2bs4" name="status_perkawinan" style="width: 100%;" required>
                       <option selected="selected" value="" disabled>STATUS</option>
-                      <option value="kawin">KAWIN</option>
-                      <option value="belum_kawin">BELUM KAWIN</option>
+                      <option value="MENIKAH">MENIKAH</option>
+                      <option value="BELUM MENIKAH">BELUM MENIKAH</option>
                     </select>
                   </div>
                 </div>
@@ -117,7 +126,27 @@ if (isset($_POST['btn_tni'])) {
                   </div>
                   <div class="form-group">
                     <label for="pangkat">PANGKAT</label>
-                    <input type="text" name="pangkat" class="form-control" id="pangkat" placeholder="Masukan Pangkat" required>
+                    <select class="form-control select2bs4" style="width: 100%;">
+                      <option selected="selected" disabled>PANGKAT</option>
+                      <option value="Kolonel">Kolonel</option>
+                      <option value="Letkol">Letkol</option>
+                      <option value="Mayor">Mayor</option>
+                      <option value="Kapten">Kapten</option>
+                      <option value="Lettu">Lettu</option>
+                      <option value="Letda">Letda</option>
+                      <option value="Peltu">Peltu</option>
+                      <option value="Pelda">Pelda</option>
+                      <option value="Serma">Serma</option>
+                      <option value="Serka">Serka</option>
+                      <option value="Sertu">Sertu</option>
+                      <option value="Serda">Serda</option>
+                      <option value="Kopka">Kopka</option>
+                      <option value="Koptu">Koptu</option>
+                      <option value="Kopda">Kopda</option>
+                      <option value="Praka">Praka</option>
+                      <option value="Pratu">Pratu</option>
+                      <option value="Prada">Prada</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="corps">CORPS</label>
@@ -134,7 +163,16 @@ if (isset($_POST['btn_tni'])) {
                   </div>
                   <div class="form-group">
                     <label for="jabatan">JABATAN</label>
-                    <input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="Masukan Jabatan" required>
+                    <select class="form-control select2bs4" name="jabatan" style="width: 100%;" required>
+                      <option selected="selected" value="" disabled>JABATAN</option>
+                      <option value="1">KARUMKIT</option>
+                      <option value="2">WAKARUMKIT</option>
+                      <option value="3">KAKOMED</option>
+                      <option value="4">KAINSTAL</option>
+                      <option value="5">KASI/KADEP</option>
+                      <option value="6">KAUR</option>
+                      <option value="7">PAUR</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label>TMT JABATAN</label>
@@ -446,62 +484,80 @@ if (isset($_POST['btn_tni'])) {
   });
 
   //Date picker
+  for (i = 1; i < 13; i++) {
+    $res = "reservationdate".i;
+    $($res).datetimepicker({
+      format: 'YYYY-MM-DD'
+    });
+  }
   $('#reservationdate').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate2').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate3').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate4').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate5').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate6').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate7').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate8').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate9').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate10').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate11').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate12').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
   });
   $('#reservationdate13').datetimepicker({
-    format: 'L'
+    format: 'YYYY-MM-DD'
+  });
+
+  var Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    timer: 3000
   });
 </script>
 
 <?php
 if (isset($_SESSION['sukses_simpan'])) { ?>
   <script type="text/javascript">
-    var Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
     Toast.fire({
       icon: 'success',
       title: 'Data Anda sudah tersimpan, Terimakasih.'
     })
   </script>
 <?php unset($_SESSION['sukses_simpan']);
+} ?>
+
+<?php
+if (isset($_SESSION['gagal_simpan'])) { ?>
+  <script type="text/javascript">
+    Toast.fire({
+      icon: 'error',
+      title: 'Data Anda gagal tersimpan!'
+    })
+  </script>
+<?php unset($_SESSION['gagal_simpan']);
 } ?>
 
 </body>
