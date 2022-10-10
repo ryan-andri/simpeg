@@ -5,7 +5,6 @@ define('BASE_PATH', dirname(dirname(__FILE__)));
 // load required Dependencies
 require_once BASE_PATH . '/configs/loader.php';
 require_once BASE_PATH . '/libs/MysqliDb.php';
-require_once BASE_PATH . '/configs/dbConnection.php';
 
 // ssl ?
 $ssl = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off';
