@@ -7,7 +7,6 @@ $db = dbInstance();
 
 if (isset($_POST['btn_tni'])) {
   $input = filter_input_array(INPUT_POST);
-
   array_splice($input, count($input) - 1, 1);
 
   $res = $db->insert('militer', $input);
