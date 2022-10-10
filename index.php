@@ -27,6 +27,14 @@ include_once('includes/sidebar.php');
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
+      <!-- Judul -->
+      <div class="row">
+        <div class="col-md-12">
+        <div class="card">
+              <img src="<?= BASE_URL ?>/assets/img/kepegawaian.png" alt="hesti">
+          </div>
+        </div>
+      </div>
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-6">

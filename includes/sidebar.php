@@ -46,7 +46,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="<?= BASE_URL ?>/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?= BASE_URL ?>/assets/img/hesti.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">SIMPEG ONLINE</span>
       </a>
 
@@ -66,8 +66,8 @@
               </a>
             </li>
             <li class="nav-header">MANAGEMENT</li>
-            <li class="nav-item <?= (CURRENT_PAGE == "kepegawaian") ? "menu-is-opening menu-open" : "" ?>">
-              <a href="#" class="nav-link <?= (CURRENT_PAGE == "kepegawaian") ? "active" : "" ?>">
+            <li class="nav-item <?= (CURRENT_PAGE == "kepegawaian_tni" || CURRENT_PAGE == "kepegawaian_pns" || CURRENT_PAGE == 'kepegawaian_tks') ? "menu-is-opening menu-open" : "" ?>">
+              <a href="#" class="nav-link <?= (CURRENT_PAGE == "kepegawaian_tni" || CURRENT_PAGE == "kepegawaian_pns" || CURRENT_PAGE == 'kepegawaian_tks') ? "active" : "" ?>">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Kepegawaian
@@ -76,19 +76,19 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?= BASE_URL ?>/pages/kepegawaian" class="nav-link <?= (CURRENT_PAGE == "kepegawaian") ? "active" : "" ?>">
+                  <a href="<?= BASE_URL ?>/pages/kepegawaian_tni" class="nav-link <?= (CURRENT_PAGE == "kepegawaian_tni") ? "active" : "" ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>TNI</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/compose.html" class="nav-link">
+                  <a href="<?= BASE_URL ?>/pages/kepegawaian_pns" class="nav-link <?= (CURRENT_PAGE == "kepegawaian_pns") ? "active" : "" ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>PNS</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                <a href="<?= BASE_URL ?>/pages/kepegawaian_tks" class="nav-link <?= (CURRENT_PAGE == "kepegawaian_tks") ? "active" : "" ?>">
                     <i class="far fa-circle nav-icon"></i>
                     <p>TKS</p>
                   </a>

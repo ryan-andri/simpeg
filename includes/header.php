@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SIMPEG - RS AK GANI</title>
-
+  <link rel="icon" type="image/x-icon" href="<?= BASE_URL ?>/assets/img/hesti.png">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
