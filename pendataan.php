@@ -9,10 +9,13 @@ $hide_body = false;
 
 function PostData($table, $key)
 {
+  // ambil inputan
   $input = filter_input_array(INPUT_POST);
+  // exclude btn_* dari array
   array_splice($input, count($input) - 1, 1);
-  // db
+  // load db
   $db = dbInstance();
+  // query
   $db->where($key, $input[$key]);
   $data = $db->getOne($table);
   $temp = false;
@@ -412,8 +415,8 @@ if (isset($_POST['btn_tks'])) {
                     <label>STATUS PERNIKAHAN</label>
                     <select class="form-control select2bs4" style="width: 100%;" name="status_perkawinan" required>
                       <option selected="selected" value="" disabled>STATUS</option>
-                      <option value="kawin">KAWIN</option>
-                      <option value="belum_kawin">BELUM KAWIN</option>
+                      <option value="MENIKAH">MENIKAH</option>
+                      <option value="BELUM MENIKAH">BELUM MENIKAH</option>
                     </select>
                   </div>
                   <div class="form-group">
