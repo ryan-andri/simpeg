@@ -3,10 +3,6 @@ session_start();
 require_once('configs/default.php');
 include_once('includes/header.php');
 
-// initial db
-
-$hide_body = false;
-
 function PostData($table, $key)
 {
   // ambil inputan
@@ -20,7 +16,7 @@ function PostData($table, $key)
   $data = $db->getOne($table);
   $temp = false;
   if ($db->count > 0) {
-    $temp = true;
+    $_SESSION['data_exist'] = 1;
   } else {
     $res = $db->insert($table, $input);
     if ($res)
@@ -464,8 +460,14 @@ if (isset($_POST['btn_tks'])) {
                     <input type="text" name="penugasan" class="form-control" id="penugasan" placeholder="Masukan Penugasan" required>
                   </div>
                   <div class="form-group">
-                    <label for="kualifikasi">KUALIFIKASI</label>
-                    <input type="text" name="kualifikasi" class="form-control" id="kualifikasi" placeholder="Masukan Kualifikasi" required>
+                    <label>KUALIFIKASI</label>
+                    <select class="form-control select2bs4" style="width: 100%;" name="kualifikasi" required>
+                      <option selected="selected" value="" disabled>KUALIFIKASI</option>
+                      <option value="MEDIS">MEDIS</option>
+                      <option value="PARAMEDIS">PARAMEDIS</option>
+                      <option value="NON-MEDIS">NON-MEDIS</option>
+                      <option value="NAKES LAINNYA">NAKES LAINNYA</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label>GOLONGAN DARAH</label>
@@ -486,7 +488,6 @@ if (isset($_POST['btn_tks'])) {
           </div>
         </div>
         <div class="tab-content <?= !$hide_body ?  "hide-body" : "" ?>">
-          TESTING
         </div>
       </div>
       <!-- /.card -->
@@ -540,6 +541,24 @@ if (isset($_POST['btn_tks'])) {
     showConfirmButton: false,
     timer: 3000
   });
+
+  $(function() {
+    $("#datatotable").DataTable({
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#datatotable_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
 </script>
 
 <?php
@@ -563,6 +582,18 @@ if (isset($_SESSION['gagal_simpan'])) { ?>
   </script>
 <?php unset($_SESSION['gagal_simpan']);
 } ?>
+
+<?php
+if (isset($_SESSION['data_exist'])) { ?>
+  <script type="text/javascript">
+    Toast.fire({
+      icon: 'error',
+      title: 'NRP/NIP/NIT anda sudah terdaftar, Terimakasih.'
+    })
+  </script>
+<?php unset($_SESSION['data_exist']);
+} ?>
+
 
 </body>
 
