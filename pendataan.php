@@ -143,7 +143,7 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                   <div class="form-group">
                     <label>JENIS KELAMIN</label>
-                    <select class="form-control select2bs4" style="width: 100%;" required>
+                    <select class="form-control select2bs4" style="width: 100%;" name="jenis_kelamin" required>
                       <option selected="selected" disabled>JENIS KELAMIN</option>
                       <option value="laki-laki">LAKI-LAKI</option>
                       <option value="perempuan">PEREMPUAN</option>
@@ -151,7 +151,7 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                   <div class="form-group">
                     <label for="pangkat">PANGKAT</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
+                    <select class="form-control select2bs4" style="width: 100%;" name="pangkat" required>
                       <option selected="selected" disabled>PANGKAT</option>
                       <option value="Kolonel">Kolonel</option>
                       <option value="Letkol">Letkol</option>
@@ -419,8 +419,8 @@ if (isset($_POST['btn_tks'])) {
                     <label>JENIS KELAMIN</label>
                     <select class="form-control select2bs4" style="width: 100%;" name="jenis_kelamin" required>
                       <option selected="selected" value="" disabled>JENIS KELAMIN</option>
-                      <option value="laki-laki">LAKI-LAKI</option>
-                      <option value="perempuan">PEREMPUAN</option>
+                      <option value="LAKI-LAKI">LAKI-LAKI</option>
+                      <option value="PEREMPUAN">PEREMPUAN</option>
                     </select>
                   </div>
                 </div>
