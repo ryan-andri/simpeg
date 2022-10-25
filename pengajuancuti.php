@@ -86,16 +86,17 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nrp">NRP</label>
-                    <input type="text" onkeyup="isi_otomatis()" name="nrp" id="nrp" class="form-control" placeholder="NRP" ></td></tr>
+                    <input type="text" onkeyup="isi_otomatis()" name="nrp" id="nrp" class="form-control" placeholder="NRP"></td>
+                    </tr>
                     <!-- <input type="text" onekeyup="isi_otomatis()" id="nrp"> name="nrp" class="form-control" id="nrp" placeholder="NRP" required> -->
                   </div>
                   <div class="form-group">
                     <label for="nama">NAMA</label>
-                    <input type="text" name="nama" class="form-control" id="nama"  disabled placeholder="" required>
+                    <input type="text" name="nama" class="form-control" id="nama" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="pangkat">PANGKAT</label>
-                    <input type="text" name="pangkat" class="form-control" id="pangkat"  disabled placeholder="" required>
+                    <input type="text" name="pangkat" class="form-control" id="pangkat" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="corps">CORPS</label>
@@ -131,21 +132,21 @@ if (isset($_POST['btn_tks'])) {
               </div>
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
               <script type="text/javascript">
-                function isi_otomatis(){
-                    var nrp = $("#nrp").val();
-                    $.ajax({
-                        url: 'ajaxmiliter.php',
-                        data:"nrp="+nrp,
-                    }).success(function (data) {
-                        var json = data,
-                        obj = JSON.parse(json);
+                function isi_otomatis() {
+                  var nrp = $("#nrp").val();
+                  $.ajax({
+                    url: 'ajaxmiliter',
+                    data: 'nrp=' + nrp,
+                    success: function(data) {
+                      obj = JSON.parse(data),
                         $('#nama').val(obj.nama);
-                        $('#pangkat').val(obj.pangkat);
-                        $('#corps').val(obj.corps);
-                        $('#jabatan').val(obj.jabatan);
-                    });
+                      $('#pangkat').val(obj.pangkat); 
+                      $('#corps').val(obj.corps);
+                      $('#jabatan').val(obj.jabatan);
+                    },
+                  });
                 }
-            </script>
+              </script>
               <div class="">
                 <button type="submit" class="btn btn-primary" name="btn_tni">Kirim</button>
               </div>
@@ -158,20 +159,21 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nrp">NIP</label>
-                    <input type="text" onkeyup="isi_otomatis()" name="nip" id="nip" class="form-control" placeholder="NIP" ></td></tr>
+                    <input type="text" onkeyup="isi_otomatis()" name="nip" id="nip" class="form-control" placeholder="NIP"></td>
+                    </tr>
                     <!-- <input type="text" onekeyup="isi_otomatis()" id="nrp"> name="nrp" class="form-control" id="nrp" placeholder="NRP" required> -->
                   </div>
                   <div class="form-group">
                     <label for="nama">NAMA</label>
-                    <input type="text" name="nama" class="form-control" id="nama"  disabled placeholder="" required>
+                    <input type="text" name="nama" class="form-control" id="nama" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="gologan">GOLONGAN</label>
-                    <input type="text" name="golongan" class="form-control" id="golongan"  disabled placeholder="" required>
+                    <input type="text" name="golongan" class="form-control" id="golongan" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="penugasan">PENUGASAN</label>
-                    <input type="text" name="penugasan" class="form-control" id="penugasan"  disabled placeholder="" required>
+                    <input type="text" name="penugasan" class="form-control" id="penugasan" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="jabatan">JABATAN</label>
@@ -213,16 +215,17 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nit">NIT</label>
-                    <input type="text" onkeyup="isi_otomatis()" name="nit" id="nit" class="form-control" placeholder="NIT" ></td></tr>
+                    <input type="text" onkeyup="isi_otomatis()" name="nit" id="nit" class="form-control" placeholder="NIT"></td>
+                    </tr>
                     <!-- <input type="text" onekeyup="isi_otomatis()" id="nrp"> name="nrp" class="form-control" id="nrp" placeholder="NRP" required> -->
                   </div>
                   <div class="form-group">
                     <label for="nama_tks">NAMA</label>
-                    <input type="text" name="nama_tks" class="form-control" id="nama_tks"  disabled placeholder="" required>
+                    <input type="text" name="nama_tks" class="form-control" id="nama_tks" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="penugasan">PENUGASAN</label>
-                    <input type="text" name="penugasan" class="form-control" id="penugasan"  disabled placeholder="" required>
+                    <input type="text" name="penugasan" class="form-control" id="penugasan" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label>TANGGAL AWAL CUTI</label>
