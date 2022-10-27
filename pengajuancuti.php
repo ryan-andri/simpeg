@@ -30,15 +30,15 @@ function PostData($table, $key)
 
 // functional button kirim
 if (isset($_POST['btn_tni'])) {
-  $data = PostData("militer", "nrp");
+  $data = PostData("cuti_militer", "nrp");
   $hide_body = $data[1]; // temp
 }
 if (isset($_POST['btn_pns'])) {
-  $data = PostData("pns", "nip");
+  $data = PostData("cuti_pns", "nip");
   $hide_body = $data[1]; // temp
 }
 if (isset($_POST['btn_tks'])) {
-  $data = PostData("tks", "nit");
+  $data = PostData("cuti_tks", "nit");
   $hide_body = $data[1]; // temp
 }
 ?>
@@ -86,25 +86,23 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nrp">NRP</label>
-                    <input type="text" onkeyup="isi_otomatis()" name="nrp" id="nrp" class="form-control" placeholder="NRP"></td>
-                    </tr>
-                    <!-- <input type="text" onekeyup="isi_otomatis()" id="nrp"> name="nrp" class="form-control" id="nrp" placeholder="NRP" required> -->
+                    <input type="text" onkeyup="isi_otomatis('tni')" name="nrp" id="nrp" class="form-control" placeholder="NRP" required></td>
                   </div>
                   <div class="form-group">
-                    <label for="nama">NAMA</label>
-                    <input type="text" name="nama" class="form-control" id="nama" disabled placeholder="" required>
+                    <label for="nama_tni">NAMA</label>
+                    <input type="text" class="form-control" name="nama_tni" id="nama_tni" disabled required>
                   </div>
                   <div class="form-group">
-                    <label for="pangkat">PANGKAT</label>
-                    <input type="text" name="pangkat" class="form-control" id="pangkat" disabled placeholder="" required>
+                    <label for="pangkat_tni">PANGKAT</label>
+                    <input type="text" class="form-control" name="pangkat_tni" id="pangkat_tni" disabled required>
                   </div>
                   <div class="form-group">
-                    <label for="corps">CORPS</label>
-                    <input type="text" name="corps" class="form-control" id="corps" disabled placeholder="Masukan Corps Satuan" required>
+                    <label for="corps_tni">CORPS</label>
+                    <input type="text" class="form-control" name="corps_tni" id="corps_tni" disabled required>
                   </div>
                   <div class="form-group">
-                    <label for="jabatan">JABATAN</label>
-                    <input type="text" name="jabatan" class="form-control" id="jabatan" disabled placeholder="Masukan Jabatan" required>
+                    <label for="jabatan_tni">JABATAN</label>
+                    <input type="text" class="form-control" name="jabatan_tni" id="jabatan_tni" disabled required>
                   </div>
                   <div class="form-group">
                     <label>TANGGAL AWAL CUTI</label>
@@ -130,23 +128,6 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                 </div>
               </div>
-              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-              <script type="text/javascript">
-                function isi_otomatis() {
-                  var nrp = $("#nrp").val();
-                  $.ajax({
-                    url: 'ajaxmiliter',
-                    data: 'nrp=' + nrp,
-                    success: function(data) {
-                      obj = JSON.parse(data),
-                        $('#nama').val(obj.nama);
-                      $('#pangkat').val(obj.pangkat); 
-                      $('#corps').val(obj.corps);
-                      $('#jabatan').val(obj.jabatan);
-                    },
-                  });
-                }
-              </script>
               <div class="">
                 <button type="submit" class="btn btn-primary" name="btn_tni">Kirim</button>
               </div>
@@ -159,25 +140,23 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nrp">NIP</label>
-                    <input type="text" onkeyup="isi_otomatis()" name="nip" id="nip" class="form-control" placeholder="NIP"></td>
-                    </tr>
-                    <!-- <input type="text" onekeyup="isi_otomatis()" id="nrp"> name="nrp" class="form-control" id="nrp" placeholder="NRP" required> -->
+                    <input type="text" onkeyup="isi_otomatis('pns')" name="nip" id="nip" class="form-control" placeholder="NIP"></td>
                   </div>
                   <div class="form-group">
                     <label for="nama">NAMA</label>
-                    <input type="text" name="nama" class="form-control" id="nama" disabled placeholder="" required>
+                    <input type="text" name="nama" class="form-control" id="nama_pns" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="gologan">GOLONGAN</label>
-                    <input type="text" name="golongan" class="form-control" id="golongan" disabled placeholder="" required>
+                    <input type="text" name="golongan" class="form-control" id="golongan_pns" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="penugasan">PENUGASAN</label>
-                    <input type="text" name="penugasan" class="form-control" id="penugasan" disabled placeholder="" required>
+                    <input type="text" name="penugasan" class="form-control" id="penugasan_pns" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="jabatan">JABATAN</label>
-                    <input type="text" name="jabatan" class="form-control" id="jabatan" disabled placeholder="Masukan Jabatan" required>
+                    <input type="text" name="jabatan" class="form-control" id="jabatan_pns" disabled placeholder="Masukan Jabatan" required>
                   </div>
                   <div class="form-group">
                     <label>TANGGAL AWAL CUTI</label>
@@ -204,7 +183,7 @@ if (isset($_POST['btn_tks'])) {
                 </div>
               </div>
               <div class="">
-                <button type="submit" class="btn btn-primary" name="btn_tni">Kirim</button>
+                <button type="submit" class="btn btn-primary" name="btn_pns">Kirim</button>
               </div>
             </form>
           </div>
@@ -215,32 +194,30 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nit">NIT</label>
-                    <input type="text" onkeyup="isi_otomatis()" name="nit" id="nit" class="form-control" placeholder="NIT"></td>
-                    </tr>
-                    <!-- <input type="text" onekeyup="isi_otomatis()" id="nrp"> name="nrp" class="form-control" id="nrp" placeholder="NRP" required> -->
+                    <input type="text" onkeyup="isi_otomatis('tks')" name="nit" id="nit" class="form-control" placeholder="NIT"></td>
                   </div>
                   <div class="form-group">
                     <label for="nama_tks">NAMA</label>
-                    <input type="text" name="nama_tks" class="form-control" id="nama_tks" disabled placeholder="" required>
+                    <input type="text" name="nama" class="form-control" id="nama_tks" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label for="penugasan">PENUGASAN</label>
-                    <input type="text" name="penugasan" class="form-control" id="penugasan" disabled placeholder="" required>
+                    <input type="text" name="penugasan" class="form-control" id="penugasan_tks" disabled placeholder="" required>
                   </div>
                   <div class="form-group">
                     <label>TANGGAL AWAL CUTI</label>
-                    <div class="input-group date" id="reservationdate3" data-target-input="nearest">
-                      <input type="text" name="tanggal_awal_cuti" class="form-control datetimepicker-input" data-target="#reservationdate3" required />
-                      <div class="input-group-append" data-target="#reservationdate3" data-toggle="datetimepicker">
+                    <div class="input-group date" id="reservationdate5" data-target-input="nearest">
+                      <input type="text" name="tanggal_awal_cuti" class="form-control datetimepicker-input" data-target="#reservationdate5" required />
+                      <div class="input-group-append" data-target="#reservationdate5" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label>TANGGAL KEMBALI CUTI</label>
-                    <div class="input-group date" id="reservationdate4" data-target-input="nearest">
-                      <input type="text" name="tanggal_kembali_cuti" class="form-control datetimepicker-input" data-target="#reservationdate4" required />
-                      <div class="input-group-append" data-target="#reservationdate4" data-toggle="datetimepicker">
+                    <div class="input-group date" id="reservationdate6" data-target-input="nearest">
+                      <input type="text" name="tanggal_kembali_cuti" class="form-control datetimepicker-input" data-target="#reservationdate6" required />
+                      <div class="input-group-append" data-target="#reservationdate6" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
                     </div>
@@ -252,7 +229,7 @@ if (isset($_POST['btn_tks'])) {
                 </div>
               </div>
               <div class="">
-                <button type="submit" class="btn btn-primary" name="btn_tni">Kirim</button>
+                <button type="submit" class="btn btn-primary" name="btn_tks">Kirim</button>
               </div>
             </form>
           </div>
@@ -278,9 +255,7 @@ if (isset($_POST['btn_tks'])) {
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= BASE_URL ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
+
 <!-- Bootstrap 4 -->
 <script src="<?= BASE_URL ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= BASE_URL ?>/assets/plugins/select2/js/select2.full.min.js"></script>
@@ -292,7 +267,47 @@ if (isset($_POST['btn_tks'])) {
 <!-- Sweetalert -->
 <script src="<?= BASE_URL ?>/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
-<script>
+<script type="text/javascript">
+  // reset setiap field input jika pindah tab
+  $('a[data-toggle="pill"]').on('click', function(e) {
+    $('.form-group input[type="text"]').val('');
+  });
+
+  function isi_otomatis(devisi) {
+    var id = 0;
+    if ($("#nrp").val() != '') {
+      id = $("#nrp").val()
+    } else if ($("#nip").val() != '') {
+      id = $("#nip").val()
+    } else if ($("#nit").val() != '') {
+      id = $("#nit").val()
+    }
+    $.ajax({
+      url: 'ajaxproses',
+      data: {
+        id: id,
+        devisi: devisi
+      },
+      success: function(data) {
+        obj = JSON.parse(data);
+        if (devisi == 'tni') {
+          $('#nama_tni').val(obj.nama);
+          $('#pangkat_tni').val(obj.pangkat);
+          $('#corps_tni').val(obj.corps);
+          $('#jabatan_tni').val(obj.jabatan);
+        } else if (devisi == 'pns') {
+          $('#nama_pns').val(obj.nama);
+          $('#golongan_pns').val(obj.golongan);
+          $('#penugasan_pns').val(obj.penugasan);
+          $('#jabatan_pns').val(obj.jabatan);
+        } else if (devisi == 'tks') {
+          $('#nama_tks').val(obj.nama);
+          $('#penugasan_tks').val(obj.penugasan);
+        }
+      },
+    });
+  };
+
   $(function() {
     //Initialize Select2 Elements
     $('.select2bs4').select2({
@@ -300,10 +315,11 @@ if (isset($_POST['btn_tks'])) {
     })
   });
   //Date picker
-  for (let i = 1; i <= 13; i++) {
+  for (let i = 1; i <= 6; i++) {
     // console.log('#reservationdate' + i);
     $('#reservationdate' + i).datetimepicker({
-      format: 'YYYY-MM-DD'
+      format: 'YYYY-MM-DD',
+      minDate: new Date()
     });
   }
   var Toast = Swal.mixin({
