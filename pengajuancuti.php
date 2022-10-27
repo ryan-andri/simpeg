@@ -247,17 +247,17 @@ if (isset($_POST['btn_tks'])) {
   <strong>Copyright &copy; <a href="#">IT RS Tk. II dr. AK Gani</a>.</strong>
 </footer>
 
-<!-- AdminLTE App -->
-<script src="<?= BASE_URL ?>/assets/js/adminlte.js"></script>
-
 <!-- jQuery -->
 <script src="<?= BASE_URL ?>/assets/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= BASE_URL ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
 <!-- Bootstrap 4 -->
 <script src="<?= BASE_URL ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="<?= BASE_URL ?>/assets/js/adminlte.js"></script>
+
 <script src="<?= BASE_URL ?>/assets/plugins/select2/js/select2.full.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?= BASE_URL ?>/assets/plugins/moment/moment.min.js"></script>
