@@ -343,7 +343,7 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                   <div class="form-group">
                     <label>GOLONGAN DARAH</label>
-                    <select class="form-control select2bs4" style="width: 100%;" required>
+                    <select class="form-control select2bs4" style="width: 100%;" name="golongan_darah" required>
                       <option selected="selected" value="" disabled>GOLONGAN DARAH</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -499,20 +499,18 @@ if (isset($_POST['btn_tks'])) {
   <strong>Copyright &copy; <a href="#">IT RS Tk. II dr. AK Gani</a>.</strong>
 </footer>
 
+<!-- jQuery -->
+<script src="<?= BASE_URL ?>/assets/plugins/jquery/jquery.min.js"></script>
+<script src="<?= BASE_URL ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="<?= BASE_URL ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="<?= BASE_URL ?>/assets/js/adminlte.js"></script>
 
-<!-- jQuery -->
-<script src="<?= BASE_URL ?>/assets/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= BASE_URL ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="<?= BASE_URL ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= BASE_URL ?>/assets/plugins/select2/js/select2.full.min.js"></script>
+
 <!-- daterangepicker -->
 <script src="<?= BASE_URL ?>/assets/plugins/moment/moment.min.js"></script>
 <script src="<?= BASE_URL ?>/assets/plugins/daterangepicker/daterangepicker.js"></script>
@@ -521,7 +519,12 @@ if (isset($_POST['btn_tks'])) {
 <!-- Sweetalert -->
 <script src="<?= BASE_URL ?>/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
-<script>
+<script type="text/javascript">
+  // reset setiap field input jika pindah tab
+  $('a[data-toggle="pill"]').on('click', function(e) {
+    $('.form-group input[type="text"]').val('');
+  });
+
   $(function() {
     //Initialize Select2 Elements
     $('.select2bs4').select2({
@@ -540,24 +543,6 @@ if (isset($_POST['btn_tks'])) {
     position: 'center',
     showConfirmButton: false,
     timer: 3000
-  });
-
-  $(function() {
-    $("#datatotable").DataTable({
-      "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#datatotable_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
   });
 </script>
 
