@@ -289,7 +289,7 @@ if (isset($_POST['btn_tks'])) {
         devisi: devisi
       },
       success: function(data) {
-        obj = JSON.parse(data);
+        var obj = JSON.parse(data);
         if (devisi == 'tni') {
           $('#nama_tni').val(obj.nama);
           $('#pangkat_tni').val(obj.pangkat);
@@ -304,6 +304,11 @@ if (isset($_POST['btn_tks'])) {
           $('#nama_tks').val(obj.nama);
           $('#penugasan_tks').val(obj.penugasan);
         }
+        // matikan tombol kirim jika data tidak valid
+        if (obj.nama == null)
+          $(':input[type="submit"]').prop('disabled', true);
+        else
+          $(':input[type="submit"]').prop('disabled', false);
       },
     });
   };
