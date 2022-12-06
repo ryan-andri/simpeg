@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2022 at 05:25 AM
+-- Generation Time: Oct 25, 2022 at 05:32 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -43,16 +43,18 @@ CREATE TABLE `militer` (
   `tmt_corps` date NOT NULL,
   `jabatan` varchar(255) NOT NULL,
   `tmt_jabatan` date NOT NULL,
-  `gol_darah` enum('A','AB','B','O') NOT NULL
+  `gol_darah` enum('A','AB','B','O') NOT NULL,
+  `jenis_kelamin` enum('LAKI-LAKI','PEREMPUAN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `militer`
 --
 
-INSERT INTO `militer` (`id`, `nrp`, `nama`, `tanggal_lahir`, `tempat_lahir`, `agama`, `status_perkawinan`, `pangkat`, `corps`, `pendidikan_umum`, `pendidikan_militer`, `tmt_tni`, `tmt_corps`, `jabatan`, `tmt_jabatan`, `gol_darah`) VALUES
-(11, '11111111', 'Ryan aaaaaa', '2022-10-29', 'Bingin Teluk  MURA', 'BUDHA', 'MENIKAH', 'Kolonel', 'asda', 'sadas', 'sadjhauis', '2022-10-14', '2022-10-14', '1', '2022-10-14', 'O'),
-(12, '11111123124121415', 'test', '2022-10-28', 'asdad', 'HINDU', 'BELUM MENIKAH', 'Kolonel', 'asdasd', 'sss', 'sadjhauis', '2022-10-22', '2022-11-05', '5', '2022-10-28', 'B');
+INSERT INTO `militer` (`id`, `nrp`, `nama`, `tanggal_lahir`, `tempat_lahir`, `agama`, `status_perkawinan`, `pangkat`, `corps`, `pendidikan_umum`, `pendidikan_militer`, `tmt_tni`, `tmt_corps`, `jabatan`, `tmt_jabatan`, `gol_darah`, `jenis_kelamin`) VALUES
+(12, '11111123124121415', 'test', '2022-10-28', 'asdad', 'HINDU', 'BELUM MENIKAH', 'Kapten', 'cc', 'sss', 'sadjhauis', '2022-10-22', '2022-11-05', '5', '2022-10-28', 'B', 'LAKI-LAKI'),
+(13, '9912134', 'Test', '2022-10-25', 'Palembang', 'KRISTEN', 'MENIKAH', 'Kolonel', 'Ckm', 'SMA', 'SCABA', '2022-10-25', '2022-10-25', 'provos', '2022-10-25', 'O', 'LAKI-LAKI'),
+(14, '1122334455', 'AK Gani', '2022-10-27', 'ewqq', 'KRISTEN', 'BELUM MENIKAH', 'Mayor', 'cku', 'SMA', 'SCABA', '2022-10-27', '2022-10-25', 'sadas', '2022-10-26', 'B', 'PEREMPUAN');
 
 -- --------------------------------------------------------
 
@@ -120,7 +122,9 @@ CREATE TABLE `tks` (
 --
 
 INSERT INTO `tks` (`id`, `nit`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan`, `sprin_tks`, `tmt_tks`, `tanggal_sprin`, `pendidikan_umum`, `tahun_lulus`, `status_perkawinan`, `jenis_kelamin`, `kualifikasi`, `golongan_darah`, `penugasan`) VALUES
-(1, '12314', 'asda', 'asda', '2022-10-19', 'BUDHA', 'asda', 'ttt', '2022-10-12', '2022-10-21', 'asda', 2022, '', 'PEREMPUAN', 'asdad', 'AB', 'asdads');
+(1, '12314', 'asda', 'asda', '2022-10-19', 'BUDHA', 'asda', 'ttt', '2022-10-12', '2022-10-21', 'asda', 2022, '', 'PEREMPUAN', 'asdad', 'AB', 'asdads'),
+(2, '123456', 'Ryan aaaaaa', 'asda', '2022-11-04', 'ISLAM', 'III', 'asdadsa', '2022-10-26', '2022-10-19', 'asda', 2022, 'BELUM MENIKAH', 'LAKI-LAKI', 'test', 'O', 'Infokes'),
+(3, '1231', 'asda', 'ASDA', '2022-10-14', '', '3', 'asdadsa', '2022-10-13', '2022-10-20', 'asda', 2022, 'MENIKAH', 'PEREMPUAN', 'NON-MEDIS', 'O', 'Infokes');
 
 --
 -- Indexes for dumped tables
@@ -155,7 +159,7 @@ ALTER TABLE `tks`
 -- AUTO_INCREMENT for table `militer`
 --
 ALTER TABLE `militer`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pns`
@@ -167,7 +171,7 @@ ALTER TABLE `pns`
 -- AUTO_INCREMENT for table `tks`
 --
 ALTER TABLE `tks`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

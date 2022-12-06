@@ -3,21 +3,20 @@ session_start();
 require_once('configs/default.php');
 include_once('includes/header.php');
 
-// initial db
-
-$hide_body = false;
-
 function PostData($table, $key)
 {
+  // ambil inputan
   $input = filter_input_array(INPUT_POST);
+  // exclude btn_* dari array
   array_splice($input, count($input) - 1, 1);
-  // db
+  // load db
   $db = dbInstance();
+  // query
   $db->where($key, $input[$key]);
   $data = $db->getOne($table);
   $temp = false;
   if ($db->count > 0) {
-    $temp = true;
+    $_SESSION['data_exist'] = 1;
   } else {
     $res = $db->insert($table, $input);
     if ($res)
@@ -144,7 +143,7 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                   <div class="form-group">
                     <label>JENIS KELAMIN</label>
-                    <select class="form-control select2bs4" style="width: 100%;" required>
+                    <select class="form-control select2bs4" style="width: 100%;" name="jenis_kelamin" required>
                       <option selected="selected" disabled>JENIS KELAMIN</option>
                       <option value="laki-laki">LAKI-LAKI</option>
                       <option value="perempuan">PEREMPUAN</option>
@@ -152,7 +151,7 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                   <div class="form-group">
                     <label for="pangkat">PANGKAT</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
+                    <select class="form-control select2bs4" style="width: 100%;" name="pangkat" required>
                       <option selected="selected" disabled>PANGKAT</option>
                       <option value="Kolonel">Kolonel</option>
                       <option value="Letkol">Letkol</option>
@@ -344,7 +343,7 @@ if (isset($_POST['btn_tks'])) {
                   </div>
                   <div class="form-group">
                     <label>GOLONGAN DARAH</label>
-                    <select class="form-control select2bs4" style="width: 100%;" required>
+                    <select class="form-control select2bs4" style="width: 100%;" name="golongan_darah" required>
                       <option selected="selected" value="" disabled>GOLONGAN DARAH</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -412,16 +411,16 @@ if (isset($_POST['btn_tks'])) {
                     <label>STATUS PERNIKAHAN</label>
                     <select class="form-control select2bs4" style="width: 100%;" name="status_perkawinan" required>
                       <option selected="selected" value="" disabled>STATUS</option>
-                      <option value="kawin">KAWIN</option>
-                      <option value="belum_kawin">BELUM KAWIN</option>
+                      <option value="MENIKAH">MENIKAH</option>
+                      <option value="BELUM MENIKAH">BELUM MENIKAH</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label>JENIS KELAMIN</label>
                     <select class="form-control select2bs4" style="width: 100%;" name="jenis_kelamin" required>
                       <option selected="selected" value="" disabled>JENIS KELAMIN</option>
-                      <option value="laki-laki">LAKI-LAKI</option>
-                      <option value="perempuan">PEREMPUAN</option>
+                      <option value="LAKI-LAKI">LAKI-LAKI</option>
+                      <option value="PEREMPUAN">PEREMPUAN</option>
                     </select>
                   </div>
                 </div>
@@ -461,8 +460,14 @@ if (isset($_POST['btn_tks'])) {
                     <input type="text" name="penugasan" class="form-control" id="penugasan" placeholder="Masukan Penugasan" required>
                   </div>
                   <div class="form-group">
-                    <label for="kualifikasi">KUALIFIKASI</label>
-                    <input type="text" name="kualifikasi" class="form-control" id="kualifikasi" placeholder="Masukan Kualifikasi" required>
+                    <label>KUALIFIKASI</label>
+                    <select class="form-control select2bs4" style="width: 100%;" name="kualifikasi" required>
+                      <option selected="selected" value="" disabled>KUALIFIKASI</option>
+                      <option value="MEDIS">MEDIS</option>
+                      <option value="PARAMEDIS">PARAMEDIS</option>
+                      <option value="NON-MEDIS">NON-MEDIS</option>
+                      <option value="NAKES LAINNYA">NAKES LAINNYA</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label>GOLONGAN DARAH</label>
@@ -483,7 +488,6 @@ if (isset($_POST['btn_tks'])) {
           </div>
         </div>
         <div class="tab-content <?= !$hide_body ?  "hide-body" : "" ?>">
-          TESTING
         </div>
       </div>
       <!-- /.card -->
@@ -495,20 +499,18 @@ if (isset($_POST['btn_tks'])) {
   <strong>Copyright &copy; <a href="#">IT RS Tk. II dr. AK Gani</a>.</strong>
 </footer>
 
+<!-- jQuery -->
+<script src="<?= BASE_URL ?>/assets/plugins/jquery/jquery.min.js"></script>
+<script src="<?= BASE_URL ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="<?= BASE_URL ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="<?= BASE_URL ?>/assets/js/adminlte.js"></script>
 
-<!-- jQuery -->
-<script src="<?= BASE_URL ?>/assets/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= BASE_URL ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="<?= BASE_URL ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= BASE_URL ?>/assets/plugins/select2/js/select2.full.min.js"></script>
+
 <!-- daterangepicker -->
 <script src="<?= BASE_URL ?>/assets/plugins/moment/moment.min.js"></script>
 <script src="<?= BASE_URL ?>/assets/plugins/daterangepicker/daterangepicker.js"></script>
@@ -517,7 +519,12 @@ if (isset($_POST['btn_tks'])) {
 <!-- Sweetalert -->
 <script src="<?= BASE_URL ?>/assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
-<script>
+<script type="text/javascript">
+  // reset setiap field input jika pindah tab
+  $('a[data-toggle="pill"]').on('click', function(e) {
+    $('.form-group input[type="text"]').val('');
+  });
+
   $(function() {
     //Initialize Select2 Elements
     $('.select2bs4').select2({
@@ -560,6 +567,18 @@ if (isset($_SESSION['gagal_simpan'])) { ?>
   </script>
 <?php unset($_SESSION['gagal_simpan']);
 } ?>
+
+<?php
+if (isset($_SESSION['data_exist'])) { ?>
+  <script type="text/javascript">
+    Toast.fire({
+      icon: 'error',
+      title: 'NRP/NIP/NIT anda sudah terdaftar, Terimakasih.'
+    })
+  </script>
+<?php unset($_SESSION['data_exist']);
+} ?>
+
 
 </body>
 
