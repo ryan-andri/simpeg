@@ -3,10 +3,7 @@ session_start();
 require_once('configs/default.php');
 include_once('includes/header.php');
 
-// initial db
-
 $hide_body = false;
-
 function PostData($table, $key)
 {
   $input = filter_input_array(INPUT_POST);
@@ -19,7 +16,13 @@ function PostData($table, $key)
   if ($db->count > 0) {
     $temp = true;
   } else {
-    $res = $db->insert($table, $input);
+    $que = array(
+      $key => $input[$key],
+      "tgl_awal" => $input['tanggal_awal_cuti'],
+      "tgl_kembali" => $input['tanggal_kembali_cuti'],
+      "tujuan" => $input['tujuan_cuti']
+    );
+    $res = $db->insert($table, $que);
     if ($res)
       $_SESSION['sukses_simpan'] = 1;
     else
@@ -140,7 +143,7 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nrp">NIP</label>
-                    <input type="text" onkeyup="isi_otomatis('pns')" name="nip" id="nip" class="form-control" placeholder="NIP"></td>
+                    <input type="text" onkeyup="isi_otomatis('pns')" name="nip" id="nip" class="form-control" placeholder="NIP" required></td>
                   </div>
                   <div class="form-group">
                     <label for="nama">NAMA</label>
@@ -194,7 +197,7 @@ if (isset($_POST['btn_tks'])) {
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nit">NIT</label>
-                    <input type="text" onkeyup="isi_otomatis('tks')" name="nit" id="nit" class="form-control" placeholder="NIT"></td>
+                    <input type="text" onkeyup="isi_otomatis('tks')" name="nit" id="nit" class="form-control" placeholder="NIT" required></td>
                   </div>
                   <div class="form-group">
                     <label for="nama_tks">NAMA</label>

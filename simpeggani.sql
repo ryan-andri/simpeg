@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2022 at 05:32 AM
+-- Generation Time: Dec 30, 2022 at 03:14 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Database: `simpeggani`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cuti_militer`
+--
+
+CREATE TABLE `cuti_militer` (
+  `id` int(5) NOT NULL,
+  `nrp` varchar(50) NOT NULL,
+  `tgl_awal` date NOT NULL,
+  `tgl_kembali` date NOT NULL,
+  `tujuan` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cuti_pns`
+--
+
+CREATE TABLE `cuti_pns` (
+  `id` int(5) NOT NULL,
+  `nip` varchar(50) NOT NULL,
+  `tgl_awal` date NOT NULL,
+  `tgl_kembali` date NOT NULL,
+  `tujuan` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cuti_tks`
+--
+
+CREATE TABLE `cuti_tks` (
+  `id` int(5) NOT NULL,
+  `nit` varchar(50) NOT NULL,
+  `tgl_awal` date NOT NULL,
+  `tgl_kembali` date NOT NULL,
+  `tujuan` varchar(255) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -52,9 +97,9 @@ CREATE TABLE `militer` (
 --
 
 INSERT INTO `militer` (`id`, `nrp`, `nama`, `tanggal_lahir`, `tempat_lahir`, `agama`, `status_perkawinan`, `pangkat`, `corps`, `pendidikan_umum`, `pendidikan_militer`, `tmt_tni`, `tmt_corps`, `jabatan`, `tmt_jabatan`, `gol_darah`, `jenis_kelamin`) VALUES
-(12, '11111123124121415', 'test', '2022-10-28', 'asdad', 'HINDU', 'BELUM MENIKAH', 'Kapten', 'cc', 'sss', 'sadjhauis', '2022-10-22', '2022-11-05', '5', '2022-10-28', 'B', 'LAKI-LAKI'),
+(12, '111111231', 'test', '2022-10-28', 'asdad', 'HINDU', 'BELUM MENIKAH', 'Kapten', 'cc', 'sss', 'sadjhauis', '2022-10-22', '2022-11-05', '5', '2022-10-28', 'B', 'LAKI-LAKI'),
 (13, '9912134', 'Test', '2022-10-25', 'Palembang', 'KRISTEN', 'MENIKAH', 'Kolonel', 'Ckm', 'SMA', 'SCABA', '2022-10-25', '2022-10-25', 'provos', '2022-10-25', 'O', 'LAKI-LAKI'),
-(14, '1122334455', 'AK Gani', '2022-10-27', 'ewqq', 'KRISTEN', 'BELUM MENIKAH', 'Mayor', 'cku', 'SMA', 'SCABA', '2022-10-27', '2022-10-25', 'sadas', '2022-10-26', 'B', 'PEREMPUAN');
+(14, '1122334455', 'AK Gani', '2022-10-27', 'ewqq', 'ISLAM', 'BELUM MENIKAH', 'Mayor', 'cku', 'SMA', 'SCABA', '2022-10-27', '2022-10-25', 'sadas', '2022-10-26', 'B', 'PEREMPUAN');
 
 -- --------------------------------------------------------
 
@@ -89,7 +134,7 @@ CREATE TABLE `pns` (
 --
 
 INSERT INTO `pns` (`id`, `nip`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan`, `tmt_golongan`, `jabatan`, `tmt_jabatan`, `latihan_jabatan`, `tahun_jabatan`, `pendidikan_umum`, `tahun_lulus`, `ijazah`, `golongan_darah`, `jenis_kelamin`, `status_perkawinan`, `penugasan`) VALUES
-(1, '11123124123', 'asda', 'sadas', '2022-09-29', 'ISLAM', 'III/D', '2022-10-15', 'karu', '2022-10-07', 'asda', 2022, 'sad', 2022, 'sma', 'A', 'PEREMPUAN', '', '');
+(2, '1122334455', 'Ryan Andri', 'Bingin Teluk  MURA', '2022-12-28', 'ISLAM', 'III/A', '2022-12-29', 'Tes', '2022-12-29', 'Tes', 2022, 'Teknik Informatika', 2022, 'S1', 'A', 'LAKI-LAKI', 'BELUM MENIKAH', 'Infokes');
 
 -- --------------------------------------------------------
 
@@ -122,13 +167,33 @@ CREATE TABLE `tks` (
 --
 
 INSERT INTO `tks` (`id`, `nit`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `golongan`, `sprin_tks`, `tmt_tks`, `tanggal_sprin`, `pendidikan_umum`, `tahun_lulus`, `status_perkawinan`, `jenis_kelamin`, `kualifikasi`, `golongan_darah`, `penugasan`) VALUES
-(1, '12314', 'asda', 'asda', '2022-10-19', 'BUDHA', 'asda', 'ttt', '2022-10-12', '2022-10-21', 'asda', 2022, '', 'PEREMPUAN', 'asdad', 'AB', 'asdads'),
 (2, '123456', 'Ryan aaaaaa', 'asda', '2022-11-04', 'ISLAM', 'III', 'asdadsa', '2022-10-26', '2022-10-19', 'asda', 2022, 'BELUM MENIKAH', 'LAKI-LAKI', 'test', 'O', 'Infokes'),
 (3, '1231', 'asda', 'ASDA', '2022-10-14', '', '3', 'asdadsa', '2022-10-13', '2022-10-20', 'asda', 2022, 'MENIKAH', 'PEREMPUAN', 'NON-MEDIS', 'O', 'Infokes');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cuti_militer`
+--
+ALTER TABLE `cuti_militer`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nrp` (`nrp`);
+
+--
+-- Indexes for table `cuti_pns`
+--
+ALTER TABLE `cuti_pns`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nip` (`nip`);
+
+--
+-- Indexes for table `cuti_tks`
+--
+ALTER TABLE `cuti_tks`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nit` (`nit`);
 
 --
 -- Indexes for table `militer`
@@ -156,6 +221,24 @@ ALTER TABLE `tks`
 --
 
 --
+-- AUTO_INCREMENT for table `cuti_militer`
+--
+ALTER TABLE `cuti_militer`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `cuti_pns`
+--
+ALTER TABLE `cuti_pns`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `cuti_tks`
+--
+ALTER TABLE `cuti_tks`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `militer`
 --
 ALTER TABLE `militer`
@@ -165,7 +248,7 @@ ALTER TABLE `militer`
 -- AUTO_INCREMENT for table `pns`
 --
 ALTER TABLE `pns`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tks`
