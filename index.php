@@ -2,6 +2,19 @@
 require_once('configs/default.php');
 include_once('includes/header.php');
 include_once('includes/sidebar.php');
+
+// load db
+$db = dbInstance();
+
+// Hitung jumlah pegawai
+$jml_mil = $db->getValue("militer", "count(*)");
+$jml_asn = $db->getValue("pns", "count(*)");
+$jml_tks = $db->getValue("tks", "count(*)");
+$jml_pegawai = $jml_mil + $jml_asn + $jml_tks;
+
+// hitung jumlah pengguna simpeg
+// $jml_usr = $db->getValue("user", "count(*)");
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -30,8 +43,8 @@ include_once('includes/sidebar.php');
       <!-- Judul -->
       <div class="row">
         <div class="col-md-12">
-        <div class="card">
-              <img src="<?= BASE_URL ?>/assets/img/kepegawaian.png" alt="hesti">
+          <div class="card">
+            <img src="<?= BASE_URL ?>/assets/img/kepegawaian.png" alt="hesti">
           </div>
         </div>
       </div>
@@ -41,8 +54,7 @@ include_once('includes/sidebar.php');
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>530</h3>
-
+              <h3><?= $jml_pegawai; ?></h3>
               <p>Pegawai</p>
             </div>
             <div class="icon">
