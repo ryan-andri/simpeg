@@ -96,7 +96,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="pages/kanban.html" class="nav-link">
+              <a href="<?= BASE_URL ?>/pages/pengajuan_cuti" class="nav-link <?= (CURRENT_PAGE == "pengajuan_cuti") ? "active" : "" ?>">
                 <i class="nav-icon fas fa-envelope"></i>
                 <p>
                   Pengajuan Cuti
