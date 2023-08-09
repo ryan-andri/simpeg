@@ -22,6 +22,6 @@ class Pendataan_tks extends Model
         'gol_darah',
         'jenis_kelamin',
         'kualifikasi',
-        'penugasan',
+        'penugasan'
     ];
 }

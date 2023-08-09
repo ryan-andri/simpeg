@@ -26,32 +26,43 @@ class PendataanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $input)
+    public function store(Request $request)
     {
-        switch ($input) {
-            case 'tni':
-                $request->validate([
-                    'nrp' => 'required',
-                    'nama' => 'required'
-                ]);
-                Pendataan_tni::create($request->post());
-                break;
-            case 'pns':
-                $request->validate([
-                    'nip' => 'required',
-                    'nama' => 'required'
-                ]);
-                Pendataan_pns::create($request->post());
-                break;
-            case 'tks':
-                $request->validate([
-                    'nit' => 'required',
-                    'nama' => 'required'
-                ]);
-                Pendataan_tks::create($request->post());
-                break;
+        $input = $request->all();
+        $devisi = $input['devisi'];
+
+        if ($devisi == 'tni') {
+            $tni = Pendataan_tni::where('nrp', $input['nrp'])->first();
+            if (!is_null($tni)) {
+                return redirect()->route('pendataan.index')->with('dupe', 'Data NRP: ' . $input['nrp'] . ' sudah ada!');
+            }
+            $request->validate([
+                'nrp' => 'required',
+                'nama' => 'required'
+            ]);
+            Pendataan_tni::create($request->post());
+        } elseif ($devisi == 'pns') {
+            $pns = Pendataan_pns::where('nip', $input['nip'])->first();
+            if (!is_null($pns)) {
+                return redirect()->route('pendataan.index')->with('dupe', 'Data NIP: ' . $input['nip'] . ' sudah ada!');
+            }
+            $request->validate([
+                'nip' => 'required',
+                'nama' => 'required'
+            ]);
+            Pendataan_pns::create($request->post());
+        } elseif ($devisi == 'tks') {
+            $tks = Pendataan_tks::where('nit', $input['nit'])->first();
+            if (!is_null($tks)) {
+                return redirect()->route('pendataan.index')->with('dupe', 'Data NIT: ' . $input['nit'] . ' sudah ada!');
+            }
+            $request->validate([
+                'nit' => 'required',
+                'nama' => 'required'
+            ]);
+            Pendataan_tks::create($request->post());
         }
 
-        return redirect()->route('pendataan.index')->with('success', 'Data berhasil di simpan!');
+        return redirect()->route('pendataan.index')->with('success', 'Data ' . $devisi . ' berhasil di simpan!');
     }
 }
